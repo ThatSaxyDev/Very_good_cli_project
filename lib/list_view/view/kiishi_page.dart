@@ -1,7 +1,10 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:very_good_cli_project/counter/counter.dart';
-import 'package:very_good_cli_project/l10n/l10n.dart';
+//import 'package:very_good_cli_project/l10n/l10n.dart';
+import 'package:very_good_cli_project/list_view/cubit/kiishi_cubit.dart';
+import 'package:very_good_cli_project/model/kiishi_model.dart';
 
 class IAmKiishi extends StatelessWidget {
   IAmKiishi({Key? key}) : super(key: key);
@@ -18,7 +21,7 @@ class IAmKiishi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size _screenSize = MediaQuery.of(context).size;
+    final _screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('I Am Kiishi'),
@@ -35,7 +38,7 @@ class IAmKiishi extends StatelessWidget {
           }
 
           return Container(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -43,46 +46,52 @@ class IAmKiishi extends StatelessWidget {
                   height: _screenSize.height * 0.02,
                 ),
                 Expanded(
-                  child: ListView(children: <Widget>[
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(8.0),
-                      title: Text(_elementsOfKiishi[0] + ': ' + state[0].name),
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(20.0),
-                      title:
-                          Text(_elementsOfKiishi[1] + ': ' + state[0].carName),
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(20.0),
-                      title: Text(_elementsOfKiishi[2] +
-                          ': ' +
-                          state[0].favouriteColour),
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(20.0),
-                      title: Text(_elementsOfKiishi[3] +
-                          ': ' +
-                          state[0].favouriteOutfit),
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(20.0),
-                      title: Text(_elementsOfKiishi[4] +
-                          ': ' +
-                          state[0].favouriteShoes),
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(20.0),
-                      title: Text(_elementsOfKiishi[5] +
-                          ': ' +
-                          state[0].favouriteInstrument),
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(20.0),
-                      title: Text(
-                          _elementsOfKiishi[6] + ': ' + state[0].frameWork),
-                    ),
-                  ]),
+                  child: ListView(
+                    children: <Widget>[
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(8),
+                        title: Text(
+                          '$_elementsOfKiishi[0] + :  + $state[0].name',
+                        ),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(20),
+                        title: Text(
+                          '$_elementsOfKiishi[1] + :  + $state[0].carName',
+                        ),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(20),
+                        title: Text(
+                          '$_elementsOfKiishi[2] + :  + $state[0].favouriteColour',
+                        ),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(20),
+                        title: Text(
+                          '$_elementsOfKiishi[3] + :  + $state[0].favouriteOutfit',
+                        ),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(20),
+                        title: Text(
+                          '$_elementsOfKiishi[4] + :  + $state[0].favouriteShoes',
+                        ),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(20),
+                        title: Text(
+                          '$_elementsOfKiishi[5] + :  + $state[0].favouriteInstrument',
+                        ),
+                      ),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(20),
+                        title: Text(
+                          '$_elementsOfKiishi[6] + :  + $state[0].frameWork',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
