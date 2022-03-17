@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:very_good_cli_project/counter/counter.dart';
 import 'package:very_good_cli_project/l10n/l10n.dart';
+import 'package:very_good_cli_project/list_view/kiishi.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -25,7 +26,6 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const IAmKiishi(),
     );
   }
 }
